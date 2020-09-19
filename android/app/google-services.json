@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "27180250131",
+    "firebase_url": "https://healtychallengeapk.firebaseio.com",
+    "project_id": "healtychallengeapk",
+    "storage_bucket": "healtychallengeapk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27180250131:android:c29f625099ae4d56cdbbe6",
+        "android_client_info": {
+          "package_name": "com.android.healtychallengeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27180250131-prs32f3jqcb0ga4qrhupgrpf42lmb8dm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNSZyPjbKM5n1zG_Wq7OzRBSZa5t8JRzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27180250131-prs32f3jqcb0ga4qrhupgrpf42lmb8dm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
