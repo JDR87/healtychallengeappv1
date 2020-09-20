@@ -3,14 +3,14 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:healtychallengeapp/models/usuario.dart';
 
 class UsuarioScreen extends StatefulWidget {
-  final Usuario usuario;
+  final Usuarioo usuario;
   UsuarioScreen(this.usuario);
   @override
   _UsuarioScreenState createState() => _UsuarioScreenState();
 }
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
 class _UsuarioScreenState extends State<UsuarioScreen> {
-  List<Usuario> itemsRoutines;
+  List<Usuarioo> itemsRoutines;
 
   TextEditingController _nombreController;
   TextEditingController _apellidoController;

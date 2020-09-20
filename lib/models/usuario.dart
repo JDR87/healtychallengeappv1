@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-class Usuario{
+class Usuarioo{
   String _id;
   String _nombre;
   String _apellido;
@@ -9,9 +9,9 @@ class Usuario{
   String _password;
   String _telefono;
 
-  Usuario(this._id, this._nombre, this._apellido, this._email,this._password,this._telefono);
+  Usuarioo(this._id, this._nombre, this._apellido, this._email,this._password,this._telefono);
 
-  Usuario.map(dynamic obj){
+  Usuarioo.map(dynamic obj){
     this._nombre = obj['nombre'];
     this._apellido = obj['apellido'];
     this._email = obj['email'];
@@ -25,7 +25,7 @@ class Usuario{
   String get password => _password;
   String get telefono => _telefono;
 
- Usuario.fromSnaphop(DataSnapshot snapshot){
+ Usuarioo.fromSnaphop(DataSnapshot snapshot){
    _id = snapshot.key;
    _nombre = snapshot.value['nombre'];
    _apellido = snapshot.value['apellido'];

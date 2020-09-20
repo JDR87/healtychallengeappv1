@@ -1,14 +1,41 @@
+import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:healtychallengeapp/ui/routine/listview_routine.dart';
-import 'package:healtychallengeapp/ui/viewsusuarios/listview_usuario.dart';
+import 'screens/map.dart';
+import 'screens/menu.dart';
+import 'screens/politics.dart';
+import 'screens/home.dart';
+import 'screens/register.dart';
+import 'screens/report.dart';
+import 'screens/stadistics.dart';
 
-import 'ui/Login.dart';
-import 'ui/Login/WelcomeHealtyChallenge.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 
-
-//COMINT AND PUSH PARA SUBIR CAMBIOS
-void main() {//CAMBIO
-  runApp(new MaterialApp(title: 'Usuarios',home:ListViewRoutine()));
 }
 
-//new MaterialApp(title: 'Rutinas',home:ListViewRoutine())
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Puntos Inseguros',
+
+      initialRoute: MyHomePage.id,
+      routes: {
+        MyHomePage.id:(context)=> MyHomePage(),
+        RegisterPage.id:(context)=> RegisterPage(),
+        PoliticsPage.id:(context)=> PoliticsPage(),
+        MenuPage.id:(context)=> MenuPage(),
+        MapPage.id:(context)=> MapPage(),
+        ReportPage.id:(context)=> ReportPage(),
+        StadisticsPage.id:(context)=> StadisticsPage(),
+      },
+    );
+
+
+  }
+
+
+}

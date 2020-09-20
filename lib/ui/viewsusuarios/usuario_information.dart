@@ -4,7 +4,7 @@ import 'package:healtychallengeapp/models/usuario.dart';
 
 
 class UsuarioInformation extends StatefulWidget {
-  final Usuario usuario;
+  final Usuarioo usuario;
   UsuarioInformation(this.usuario);
   @override
   _UsuarioInformationState createState() => _UsuarioInformationState();
@@ -13,7 +13,7 @@ class UsuarioInformation extends StatefulWidget {
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
 
 class _UsuarioInformationState extends State<UsuarioInformation> {
-  List<Usuario> itemsUsuario;
+  List<Usuarioo> itemsUsuario;
 
   @override
   void initState() {

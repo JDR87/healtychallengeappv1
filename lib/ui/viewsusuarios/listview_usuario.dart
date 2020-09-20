@@ -13,7 +13,7 @@ class ListViewUsuario extends StatefulWidget {
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
 
 class _ListViewUsuarioState extends State<ListViewUsuario> {
-  List<Usuario> itemsUsuario;
+  List<Usuarioo> itemsUsuario;
   StreamSubscription<Event> _onUsuarioAddedSubcription;
   StreamSubscription<Event> _onUsuarioChangedSubcription;
 
@@ -119,19 +119,19 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
   void _onUsuarioAdded(Event event) {
     setState(() {
-      itemsUsuario.add(new Usuario.fromSnaphop(event.snapshot));
+      itemsUsuario.add(new Usuarioo.fromSnaphop(event.snapshot));
     });
   }
 
   void _onUsuarioUpdate(Event event) {
     var oldUsuarioValue = itemsUsuario.singleWhere((usuario) => usuario.id == event.snapshot.key);
     setState(() {
-      itemsUsuario[itemsUsuario.indexOf(oldUsuarioValue)] = new Usuario.fromSnaphop(event.snapshot);
+      itemsUsuario[itemsUsuario.indexOf(oldUsuarioValue)] = new Usuarioo.fromSnaphop(event.snapshot);
     });
   }
 
   void _deleteUsuario(
-      BuildContext context, Usuario usuario, int position) async {
+      BuildContext context, Usuarioo usuario, int position) async {
     await usuarioReference.child(usuario.id).remove().then((_) {
       setState(() {
         itemsUsuario.removeAt(position);
@@ -142,14 +142,14 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
 
   void _navigationToUsuarioInformation(
-      BuildContext context, Usuario usuario) async {
+      BuildContext context, Usuarioo usuario) async {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UsuarioScreen(usuario)),
     );
   }
 
-  void _navigateToUsuario(BuildContext context, Usuario usuario) async {
+  void _navigateToUsuario(BuildContext context, Usuarioo usuario) async {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UsuarioInformation(usuario)),
@@ -158,7 +158,7 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
   void _createNewUsuario(BuildContext context) async {
     await Navigator.push(context,
-      MaterialPageRoute(builder: (context) => UsuarioScreen(Usuario(null,'','','','',''))),
+      MaterialPageRoute(builder: (context) => UsuarioScreen(Usuarioo(null,'','','','',''))),
     );
   }
 

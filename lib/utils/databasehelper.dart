@@ -1,9 +1,10 @@
 //import 'dart:html';
 import 'dart:io';
-import 'package:healtychallengeapp/models/user.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:healtychallengeapp/models/user.dart';
+
 
 
 class DatabaseHelper {

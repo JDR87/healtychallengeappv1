@@ -147,7 +147,7 @@ class _RegistrationHealtyChallengeState extends State<RegistrationHealtyChalleng
                 print(email);
                 print(password);
                 print(context.toString());
-                //_saveInformation(context);
+                _saveInformation(context);
               //  Navigator.pushNamed(context, RegistrationHealtyChallenge.id);
               },
             ),

@@ -12,7 +12,7 @@ class HealtyChallenge extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login',
-      initialRoute:  LoginHealtyChallenge.id,
+      initialRoute:  WelcomeHealtyChallenge.id,
       routes:{
         WelcomeHealtyChallenge.id:(context)=>WelcomeHealtyChallenge(),
         LoginHealtyChallenge.id:(context)=>LoginHealtyChallenge(),
