@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:healtychallengeapp/models/usuario.dart';
+import 'package:healtychallengeapp/models/instructor.dart';
 
 
 class UsuarioInformation extends StatefulWidget {
-  final Usuarioo usuario;
+  final Instructor usuario;
   UsuarioInformation(this.usuario);
   @override
   _UsuarioInformationState createState() => _UsuarioInformationState();
@@ -13,7 +13,7 @@ class UsuarioInformation extends StatefulWidget {
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
 
 class _UsuarioInformationState extends State<UsuarioInformation> {
-  List<Usuarioo> itemsUsuario;
+  List<Instructor> itemsUsuario;
 
   @override
   void initState() {

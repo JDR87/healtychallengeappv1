@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:healtychallengeapp/models/usuario.dart';
+import 'package:healtychallengeapp/models/instructor.dart';
 
-class UsuarioScreen extends StatefulWidget {
-  final Usuarioo usuario;
-  UsuarioScreen(this.usuario);
+class RegisterInstructor extends StatefulWidget {
+  final Instructor usuario;
+  RegisterInstructor(this.usuario);
   @override
-  _UsuarioScreenState createState() => _UsuarioScreenState();
+  _RegisterInstructorState createState() => _RegisterInstructorState();
 }
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
-class _UsuarioScreenState extends State<UsuarioScreen> {
-  List<Usuarioo> itemsRoutines;
+class _RegisterInstructorState extends State<RegisterInstructor> {
+  List<Instructor> itemsRoutines;
 
   TextEditingController _nombreController;
   TextEditingController _apellidoController;

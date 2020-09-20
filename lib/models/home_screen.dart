@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:healtychallengeapp/models/channel_model1.dart';
-import 'package:healtychallengeapp/models/video_model1.dart';
-import 'package:healtychallengeapp/models/video_screen1.dart';
+import 'package:healtychallengeapp/models/channel_model.dart';
+import 'package:healtychallengeapp/models/video_model.dart';
+import 'package:healtychallengeapp/models/video_screen.dart';
 import 'package:healtychallengeapp/services1/api_service.dart';
 
 class HomeScreen extends StatefulWidget {

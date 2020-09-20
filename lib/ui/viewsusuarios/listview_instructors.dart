@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
-import 'package:healtychallengeapp/ui/viewsusuarios/usuario_screen.dart';
-import 'package:healtychallengeapp/ui/viewsusuarios/usuario_information.dart';
-import 'package:healtychallengeapp/models/usuario.dart';
+import 'package:healtychallengeapp/ui/viewsusuarios/register_instructor.dart';
+import 'package:healtychallengeapp/ui/viewsusuarios/instructor_information.dart';
+import 'package:healtychallengeapp/models/instructor.dart';
 
-class ListViewUsuario extends StatefulWidget {
+class ListViewInstructors extends StatefulWidget {
+  static String id='lista_instructores';
   @override
-  _ListViewUsuarioState createState() => _ListViewUsuarioState();
+  _ListViewInstructorsState createState() => _ListViewInstructorsState();
 }
 
 final usuarioReference = FirebaseDatabase.instance.reference().child('usuario');
 
-class _ListViewUsuarioState extends State<ListViewUsuario> {
-  List<Usuarioo> itemsUsuario;
+class _ListViewInstructorsState extends State<ListViewInstructors> {
+  List<Instructor> itemsUsuario;
   StreamSubscription<Event> _onUsuarioAddedSubcription;
   StreamSubscription<Event> _onUsuarioChangedSubcription;
 
@@ -107,11 +108,11 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(
-            Icons.add,
+            Icons.arrow_back_rounded,
             color: Colors.black,
           ),
-          backgroundColor: Colors.white,
-          onPressed: () => _createNewUsuario(context),
+          backgroundColor: Colors.green,
+          onPressed: () => Navigator.pop(context),
         ),
       ),
     );
@@ -119,19 +120,19 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
   void _onUsuarioAdded(Event event) {
     setState(() {
-      itemsUsuario.add(new Usuarioo.fromSnaphop(event.snapshot));
+      itemsUsuario.add(new Instructor.fromSnaphop(event.snapshot));
     });
   }
 
   void _onUsuarioUpdate(Event event) {
     var oldUsuarioValue = itemsUsuario.singleWhere((usuario) => usuario.id == event.snapshot.key);
     setState(() {
-      itemsUsuario[itemsUsuario.indexOf(oldUsuarioValue)] = new Usuarioo.fromSnaphop(event.snapshot);
+      itemsUsuario[itemsUsuario.indexOf(oldUsuarioValue)] = new Instructor.fromSnaphop(event.snapshot);
     });
   }
 
   void _deleteUsuario(
-      BuildContext context, Usuarioo usuario, int position) async {
+      BuildContext context, Instructor usuario, int position) async {
     await usuarioReference.child(usuario.id).remove().then((_) {
       setState(() {
         itemsUsuario.removeAt(position);
@@ -142,14 +143,14 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
 
   void _navigationToUsuarioInformation(
-      BuildContext context, Usuarioo usuario) async {
+      BuildContext context, Instructor usuario) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => UsuarioScreen(usuario)),
+      MaterialPageRoute(builder: (context) => RegisterInstructor(usuario)),
     );
   }
 
-  void _navigateToUsuario(BuildContext context, Usuarioo usuario) async {
+  void _navigateToUsuario(BuildContext context, Instructor usuario) async {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UsuarioInformation(usuario)),
@@ -158,7 +159,7 @@ class _ListViewUsuarioState extends State<ListViewUsuario> {
 
   void _createNewUsuario(BuildContext context) async {
     await Navigator.push(context,
-      MaterialPageRoute(builder: (context) => UsuarioScreen(Usuarioo(null,'','','','',''))),
+      MaterialPageRoute(builder: (context) => RegisterInstructor(Instructor(null,'','','','',''))),
     );
   }
 
