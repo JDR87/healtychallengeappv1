@@ -5,12 +5,13 @@ import 'package:healtychallengeapp/ui/Login/login.dart';
 import 'package:healtychallengeapp/ui/Login/registration.dart';
 import 'package:healtychallengeapp/ui/Login/welcome.dart';
 import 'package:healtychallengeapp/ui/routine/listview_routine.dart';
-import 'package:healtychallengeapp/ui/routine/routine_information.dart';
 import 'package:healtychallengeapp/ui/viewsusuarios/listview_instructors.dart';
 
-void main() => runApp(HealtyChallengeApp());
+void main() => runApp(HealtyChallengeApp()
+);
 
 class HealtyChallengeApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,6 +25,9 @@ class HealtyChallengeApp extends StatelessWidget {
         ListViewRoutine.id: (context) => ListViewRoutine(),
         ListViewInstructors.id: (context) => ListViewInstructors(),
       },
+      debugShowCheckedModeBanner: false,
     );
+
   }
+
 }
