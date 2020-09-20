@@ -36,3 +36,5 @@ const KTextFieldDecoration =InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const TITULO='Healty Challenge';

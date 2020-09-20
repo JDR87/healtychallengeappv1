@@ -41,6 +41,6 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/img/intro1.jpg
+    - assets/img/
 
 

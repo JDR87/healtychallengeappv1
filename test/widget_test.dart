@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:healtychallengeapp/main.dart';
+import 'package:healtychallengeapp/main2.dart';
 import 'package:healtychallengeapp/ui/Login.dart';
 
 void main() {
