@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:healtychallengeapp/models/routine.dart';
 
-
-
 class RoutineInformation extends StatefulWidget {
+  static String id = 'routine_information';
   final Routine routine;
   RoutineInformation(this.routine);
   @override
@@ -14,16 +13,16 @@ class RoutineInformation extends StatefulWidget {
 final routineReference = FirebaseDatabase.instance.reference().child('routine');
 
 class _RoutineInformationState extends State<RoutineInformation> {
-
   List<Routine> itemsRoutine;
 
- // String productImage;//nuevo
+  // String productImage;//nuevo
 
   @override
-  void initState() {   
+  void initState() {
     super.initState();
-  ///  productImage = widget.product.productImage;//nuevo
-  //  print(productImage);//nuevo
+
+    ///  productImage = widget.product.productImage;//nuevo
+    //  print(productImage);//nuevo
   }
 
   @override
@@ -31,46 +30,114 @@ class _RoutineInformationState extends State<RoutineInformation> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Informacion de Rutina'),
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.orangeAccent,
       ),
       body: Container(
-        height: 800.0,
         padding: const EdgeInsets.all(20.0),
-        child: Card(
-          child: Center(
-            child: Column(
-              children: <Widget>[                
-                new Text("Nombre Rutina : ${widget.routine.nameactivity}", style: TextStyle(fontSize: 18.0),),
-                Padding(padding: EdgeInsets.only(top: 8.0),),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.orangeAccent, Colors.greenAccent])),
+        child: ListView(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'ACTIVIDAD',
+                  style: TextStyle(fontSize: 22.0),
+                ),
                 Divider(),
-                new Text("Descripcion : ${widget.routine.description}", style: TextStyle(fontSize: 18.0),),
-                Padding(padding: EdgeInsets.only(top: 8.0),),
-                Divider(),
-                new Text("Nivel : ${widget.routine.level}", style: TextStyle(fontSize: 18.0),),
-                Padding(padding: EdgeInsets.only(top: 8.0),),
-                Divider(),
-                new Text("Objetivo : ${widget.routine.objective}", style: TextStyle(fontSize: 18.0),),
-                Padding(padding: EdgeInsets.only(top: 8.0),),
-                Divider(),
-                new Text("Rutina : ${widget.routine.challenge}", style: TextStyle(fontSize: 18.0),),
-                Divider(),
-                new Text("Reto : ${widget.routine.perform}", style: TextStyle(fontSize: 18.0),),
-                Padding(padding: EdgeInsets.only(top: 8.0),),
-                Divider(),
-                new Text("Parte del Cuerpo : ${widget.routine.bodypart}", style: TextStyle(fontSize: 18.0),),
-                Divider(),
-         /*       Container(
-                          height: 300.0,
-                          width: 300.0,
-              child: Center(
-                child: productImage == ''
-                    ? Text('No Image')
-                    : Image.network(productImage+'?alt=media'),//nuevo para traer la imagen de firestore
-              ),
-            ),*/
+                Text(
+                  "${widget.routine.nameactivity}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ],
             ),
-          ),
+            Divider(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'DESCRIPCION',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+                Divider(),
+                Text(
+                  "${widget.routine.description}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ],
+            ),
+            Divider(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'NIVEL',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+                Divider(),
+                Text(
+                  "${widget.routine.level}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ],
+            ),
+            Divider(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'DESAFIO',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+                Divider(),
+                Text(
+                  "${widget.routine.challenge}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ],
+            ),
+            Divider(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'RETOS PENDIENTES',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+                Divider(),
+                Text(
+                  "${widget.routine.nameactivity}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ],
+            ),
+            Divider(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'PARTE A EJERCITAR',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+                Divider(),
+                Text(
+                  "${widget.routine.bodypart}",
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ],
+            ),
+            Divider(),
+          ],
         ),
       ),
     );

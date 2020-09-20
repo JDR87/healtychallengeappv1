@@ -1,17 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-
-//nuevo para imagenes
-import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:healtychallengeapp/components/rounded_button.dart';
 import 'package:healtychallengeapp/models/routine.dart';
-import 'package:image_picker/image_picker.dart';
-
-
-//File image;
-//String filename;
 
 class RoutineScreen extends StatefulWidget {
   final Routine routine;
