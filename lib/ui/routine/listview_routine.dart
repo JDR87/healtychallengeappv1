@@ -44,71 +44,80 @@ class _ListViewRoutineState extends State<ListViewRoutine> {
           centerTitle: true,
           backgroundColor: Colors.orangeAccent,
         ),
-        body: Center(
+        body: Container(
           child: ListView.builder(
-              itemCount: itemsRoutines.length,
-              padding: EdgeInsets.only(top: 3.0),
-              itemBuilder: (context, position) {
-                return Column(
-                  children: <Widget>[
-                    Divider(
-                      height: 1.0,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [Colors.green, Colors.orangeAccent])),
-                      child: Center(
-                        child: Card(
-                          child: Row(
-                            children: <Widget>[
-                              //nuevo imagen
-                              Expanded(
-                                child: ListTile(
-                                    title: Text(
-                                      '${itemsRoutines[position].nameactivity}',
-                                      style: TextStyle(
-                                        color: Colors.blueAccent,
-                                        fontSize: 21.0,
-                                      ),
+            itemCount: itemsRoutines.length,
+            padding: EdgeInsets.only(top: 3.0),
+            itemBuilder: (context, position) {
+              return Column(
+                children: <Widget>[
+                  Divider(
+                    height: 1.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [Colors.green, Colors.orangeAccent])),
+                    child: Center(
+                      child: Card(
+                        child: Row(
+                          children: <Widget>[
+                            //nuevo imagen
+                            Expanded(
+                              child: ListTile(
+                                  title: Text(
+                                    '${itemsRoutines[position].nameactivity}',
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 21.0,
                                     ),
-                                    subtitle: Text(
-                                      '${itemsRoutines[position].description}',
-                                      style: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 21.0,
-                                      ),
+                                  ),
+                                  subtitle: Text(
+                                    '${itemsRoutines[position].description}',
+                                    style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontSize: 21.0,
                                     ),
-                                    onTap: () => _navigateToRoutineInformation(
-                                        context, itemsRoutines[position])),
-                              ),
-                              IconButton(
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
                                   ),
-                                  //onPressed: () => _showDialog(context, position),
-                                  onPressed: () => _deleteRoutine(context,
-                                      itemsRoutines[position], position)),
-                              //onPressed: () => _deleteProduct(context, items[position],position)),
-                              IconButton(
-                                  icon: Icon(
-                                    Icons.remove_red_eye,
-                                    color: Colors.blueAccent,
-                                  ),
-                                  onPressed: () => _navigateToRoutine(
+                                  onTap: () => _navigateToRoutineInformation(
                                       context, itemsRoutines[position])),
-                            ],
-                          ),
-                          color: Colors.white,
+                            ),
+                            IconButton(
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                ),
+                                //onPressed: () => _showDialog(context, position),
+                                onPressed: () => _deleteRoutine(context,
+                                    itemsRoutines[position], position)),
+                            //onPressed: () => _deleteProduct(context, items[position],position)),
+                            IconButton(
+                                icon: Icon(
+                                  Icons.remove_red_eye,
+                                  color: Colors.blueAccent,
+                                ),
+                                onPressed: () => _navigateToRoutine(
+                                    context, itemsRoutines[position])),
+                          ],
                         ),
+                        color: Colors.white,
                       ),
                     ),
-                  ],
-                );
-              }),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back_outlined),
+          elevation: 50.0,
+          backgroundColor: Colors.amber,
         ),
       ),
     );
